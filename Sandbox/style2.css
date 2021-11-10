@@ -1,0 +1,52 @@
+body {
+    min-height: 100%;
+    background-image: url(/project1_grass.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main {
+    display: grid;
+    grid-template-rows: 1fr 3fr 1fr;
+    grid-template-columns: 1fr;
+    background-color: dodgerblue;
+    /* display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap; */
+}
+
+header {
+    text-align: center;
+    grid-row: 1;
+    background-color: red;
+}
+
+#navBox {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav {
+    border-radius: 20px;
+    flex: 1 1 0px;
+}
+
+#stacks {
+    grid-row: 2;
+    background-color: green;
+    /* new above */
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1.5fr;
+    grid-template-rows: repeat(10 1fr)
+}
+
+#bottom {
+    grid-row: 3;
+    background-color: fuchsia;
+}
+
+
+
+
