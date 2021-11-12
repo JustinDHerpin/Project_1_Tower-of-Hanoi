@@ -1,16 +1,30 @@
 $(() => {
 
 //    console.log("ready")
-
+    
+    
     $("#navBox").click(function(e) {
         if($(e.target).attr("id") === "rules") {
             $("#rulesBox").css("display", "block");
             //                      console.log($(e.target));
         } else if($(e.target).attr("id") === "story") {
             $("#storyBox").css("display", "block");
+        } else if($(e.target).attr("id") === "play") {
+            $(".disc").css("display", "block");
         };
 
     });
+
+    // $("#navBox").click(function(e) {
+    //     let modalClass = 
+    //     $(".modal").css("display", "block");
+    // });
+
+
+
+    $(".close").click(() => {
+        $(".modal").css("display", "none")
+    })
 
 
     $("#stacks").on("click", ".disc", function(e) {
