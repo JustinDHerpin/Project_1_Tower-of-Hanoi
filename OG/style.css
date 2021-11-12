@@ -11,6 +11,17 @@ main {
     flex-wrap: nowrap; */
 }
 
+
+.modal {
+    display: none;
+    perspective: 400px;
+    perspective-origin: 50% 100%;
+}
+
+.modalChildren {
+    transform-style: preserve-3d;
+}
+
 header {
     text-align: center;
     background-color: dodgerblue;
