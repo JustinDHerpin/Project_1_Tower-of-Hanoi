@@ -7,46 +7,64 @@ $(() => {
     let startDivArray = [];
     let stagingDivArray = [];
     let targetDivArray = [];
+    
+    function $selectDisc(e) {
+        $selectedDisc = $(e.target);
+        $(e.target).css("background-color", "purple");
+        }
+    //                                                      function test() {
+    //                                                          console.log("GREAT JOB!!  that worked!")
+    //                                                      }
 
 
+//------------------  functions/logic for nav items: play, rules, and story button(s) functionality  --------------------------
 
-//------------------  functions/logic for play, rules, and story button(s) functionality  --------------------------
-
-    $("#navBox").click(function(e) {
+    $("#navBox").click(handleNavClick)
+      
+    function handleNavClick (e) {
         
         if($(e.target).attr("id") === "rules") {
             $("#rulesBox").css("display", "block");
-            //                                                  $("#navBox").off("click");  attempting to 
+            $("#navBox").off("click");
            
         } else if($(e.target).attr("id") === "story") {
             $("#storyBox").css("display", "block");
+            $("#navBox").off("click");
 
         } else if($(e.target).attr("id") === "play") {
             $(".disc").css("display", "block");
-
+            play();
+        //                                                                      test();
         };
 
-        // $("#navBox").click(function(e) {
-            //     let modalClass = 
-            //     $(".modal").css("display", "block");  $(`$(e.target).modal $(`.modal$(e.target`) 
-            // });
-            //                          let targetModal = `$(.modal$(e.target))`
+        //                                                                    $("#navBox").click(function(e) {
+        //                                                                            let modalClass = 
+        //                                                                            $(".modal").css("display", "block");  $(`$(e.target).modal $(`.modal$(e.target`) 
+        //                                                                        });
+        //                                                                                                 let targetModal = `$(.modal$(e.target))`
 
 
-    });
+    };
 
 
-//-------------------  function to close pop-ups once clicked:  --------------------------
+//---------------------  function to close pop-ups once clicked:  --------------------------
 
     $(".close").click(() => {
-        $(".modal").css("display", "none")
+        $(".modal").css("display", "none");
+        $("#navBox").click(handleNavClick);
     })
 
 
-//-------------------  Gameplay:    ------------------------------------------------------
+//----------------------  Gameplay:    ------------------------------------------------------
 
+    $("#discDiv1").click(handleNavClick)
     function play() {
-        
+        $selectDisc();
+        $("#discDiv1").on("click", function(e) {
+            if ($selectedDisc === null) {
+                $(e.target).css("background-color", "purple");
+            }
+        })
 
     }
 
