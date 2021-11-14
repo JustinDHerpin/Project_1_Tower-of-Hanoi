@@ -3,15 +3,18 @@ $(() => {
 
 //-----------------  Declaring variables for global use  --------------------------
 
-    let $selectedDisc = null;
-    let startDivArray = [];
-    let stagingDivArray = [];
-    let targetDivArray = [];
+     let selectedDisc = [];
+     let startDivArray = [1,2,3];
+    // let stagingDivArray = [];
+    // let targetDivArray = [];
     
-    function $selectDisc(e) {
-        $selectedDisc = $(e.target);
+     function $selectDisc (e) {
+        //        console.log(e.target);
         $(e.target).css("background-color", "purple");
-        }
+        selectedDisc.push($(e.target).data("index"));
+        console.log(selectedDisc);
+        console.log(selectedDisc[0]);
+    };
     //                                                      function test() {
     //                                                          console.log("GREAT JOB!!  that worked!")
     //                                                      }
@@ -52,21 +55,55 @@ $(() => {
     $(".close").click(() => {
         $(".modal").css("display", "none");
         $("#navBox").click(handleNavClick);
-    })
+    });
 
 
 //----------------------  Gameplay:    ------------------------------------------------------
 
-    $("#discDiv1").click(handleNavClick)
+    
     function play() {
-        $selectDisc();
-        $("#discDiv1").on("click", function(e) {
-            if ($selectedDisc === null) {
-                $(e.target).css("background-color", "purple");
-            }
-        })
 
-    }
+        console.log(selectedDisc);
+        if (selectedDisc[0] === undefined) {
+            console.log("it's undefined");
+        } else {
+            console.log("the loop worked")
+        }
+        console.log(selectedDisc[0]);
+
+    //     if (selectedDisc[0] === undefined) {
+
+    //         $("#discDiv1").click($selectDisc)
+    //             $selectDisc(e);
+            
+    // //         function $selectDisc (e) {
+    // // //            console.log(e.target);
+    // //             $(e.target).css("background-color", "purple");
+    // //             selectedDisc.push($(e.target).data("index"));
+    // //             console.log(selectedDisc);
+    // //             console.log(selectedDisc[0]);
+    // //         };
+    //     } else {
+    //         alert("you already clicked");
+    //     };
+    //                                                          //     $(e.target).css("background-color", "purple");
+    //                                                              //     selectedDisc.push($(e.target).data("index"));
+    //                                                              //     console.log(selectedDisc);
+
+    //                                                              // };
+        
+
+
+
+        // $("#discDiv1").click($selectDisc())
+        // ;
+        // $("#discDiv1").on("click", function(e) {
+        //     if ($selectedDisc === null) {
+        //         $(e.target).css("background-color", "purple");
+        //     };
+        // });
+
+    };
 
 
     // $("#stacks").on("click", ".disc", function(e) {
