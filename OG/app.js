@@ -70,14 +70,14 @@ $(() => {
         function firstClick(e) {
             console.log(e.target);
             console.log(e.delegateTarget);
-            let clickedDiv = e.delegateTarget;
-            //console.log(clickedDiv);
+            let $clickedDiv = e.delegateTarget;
+            //console.log($clickedDiv);
             // console.log($(e.target).find(":first-child"));
             // $(e.target).find(":first-child").css("background-color", "purple");
-            // console.log(clickedDiv);
+            // console.log($clickedDiv);
             // selectedDisc = [$(e.target.firstchild)]
             // $(selectedDisc).css("background-color", "purple");
-            // console.log(clickedDiv);
+            // console.log($clickedDiv);
             // console.log(selectedDisc)
 
             if (selectedDisc.length === 0) {
@@ -101,12 +101,24 @@ $(() => {
             } else if(selectedDisc.length === 1) {
 
                     $discToAppend.removeClass("selected");
-                    $discToAppend.prependTo(clickedDiv);
+                    $discToAppend.prependTo($clickedDiv);
                     selectedDisc = [];
-                    //if(clickedDiv === )
+                    if($($clickedDiv).attr("id") === "discDiv2") {
+                        console.log("this is where you update disDiv2's array");
+                        stagingDivArray.push($($discToAppend).data("index"))
+                        console.log(stagingDivArray);
+
+
+                    } else if($($clickedDiv).attr("id") === "discDiv3") {
+                        console.log("this is where you update disDiv3's array");
+
+                    } else if($($clickedDiv).attr("id") === "discDiv1") {
+                        console.log("this is where you update disDiv1's array");
+                    };
+                    //if($clickedDiv === )
 
             //    console.log($("#discDiv1"));
-            //    clickedDiv.prepend($("#disc1"))
+            //    $clickedDiv.prepend($("#disc1"))
             //     e.target.append()
             
             } else if  (targetDivArray.length === winningCompareArray.length){
