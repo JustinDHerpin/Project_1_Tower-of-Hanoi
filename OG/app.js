@@ -66,11 +66,12 @@ $(() => {
         //console.log(selectedDisc);
 
         $("#stacks .discDiv").on("click", firstClick)
-
+        
         function firstClick(e) {
-            
-            let clickedDiv = e.target;
-            console.log(clickedDiv);
+            console.log(e.target);
+            console.log(e.delegateTarget);
+            let clickedDiv = e.delegateTarget;
+            //console.log(clickedDiv);
             // console.log($(e.target).find(":first-child"));
             // $(e.target).find(":first-child").css("background-color", "purple");
             // console.log(clickedDiv);
@@ -80,24 +81,30 @@ $(() => {
             // console.log(selectedDisc)
 
             if (selectedDisc.length === 0) {
-                if(e.target.classlist.contains("discDiv")) {
-                    $discToAppend = $(e.target).find(":first-child");
-                    $discToAppend.css("background-color", "purple");
+                //if($(e.target).classlist.contains(discDiv)) {
+                    $discToAppend = $(e.delegateTarget).find(":first-child");
+                    $discToAppend.addClass("selected");
+                    //$discToAppend.css("color", "red");
+                    //$discToAppend.css("background-color", "purple");
 
-                } else {
-                    $discToAppend = $(e.target)
-                    $discToAppend.css("background-color", "purple");
-                    console.log("this is e.target" + $discToAppend);
-                }
+                //} else {
+                    //$discToAppend = $(e.target)
+                    //$discToAppend.css("background-color", "purple");
+                    //$discToAppend.addClass("selected");
+                    //console.log("this is e.target" + $discToAppend);
+                //}
     //                                                                  $(e.target).find(":first-child").css("background-color", "purple");
-                    selectedDisc.push($(e.target).find(":first-child").data("index"));
+                    selectedDisc.push($(e.delegateTarget).find(":first-child").data("index"));
                     console.log(selectedDisc);
                 //console.log("this is where it should select a disc and change it's color");
 
             } else if(selectedDisc.length === 1) {
-                    console.log("this is where it will be appended");
+
+                    $discToAppend.removeClass("selected");
                     $discToAppend.prependTo(clickedDiv);
                     selectedDisc = [];
+                    //if(clickedDiv === )
+
             //    console.log($("#discDiv1"));
             //    clickedDiv.prepend($("#disc1"))
             //     e.target.append()
