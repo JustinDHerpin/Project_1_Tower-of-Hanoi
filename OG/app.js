@@ -8,6 +8,7 @@ $(() => {
      let startDivArray = [1,2,3];
      let stagingDivArray = [];
      let targetDivArray = [];
+     let game = false;
     //console.log(targetDivArray.length);
     //checkForWin(targetDivArray, winningCompareArray);
 
@@ -51,14 +52,11 @@ $(() => {
         
         function firstClick(e) {
             let $clickedDiv = e.delegateTarget;
-            // console.log($clickedDiv);
-            // console.log(selectedDisc)
-            //checkForWin(targetDivArray, winningCompareArray);
 
 
     //---------------------  Conditionals to select and move discs:  --------------------------
 
-            //noWinYet:
+
             if (selectedDisc.length === 0) {
                 $discToAppend = $(e.delegateTarget).find(":first-child");
                 $discToAppend.addClass("selected");
@@ -69,15 +67,18 @@ $(() => {
 //----------------  Set Conditionals to remove selected disc from current array for tracking of moves  ----------  
 
                 if ($($clickedDiv).attr("id") === "discDiv1") {
-                    startDivArray.shift()
+                    startDivArray.sort();
+                    startDivArray.shift();
                     console.log("this is where you remove selected disc from discDiv1's array: " + startDivArray);
 
                 } else if ($($clickedDiv).attr("id") === "discDiv2") {
-                    stagingDivArray.shift()
+                    stagingDivArray.sort();
+                    stagingDivArray.shift();
                     console.log("this is where you remove selected disc from discDiv2's array: " + stagingDivArray);
 
                 } else if ($($clickedDiv).attr("id") === "discDiv3") {
-                    targetDivArray.shift()
+                    targetDivArray.sort();
+                    targetDivArray.shift();
                     console.log("this is where you remove selected disc from disDiv3's array: " + targetDivArray);
 
                 }
@@ -93,6 +94,7 @@ $(() => {
                             $discToAppend.removeClass("selected");
                             $discToAppend.prependTo($clickedDiv);
                             startDivArray.push($($discToAppend).data("index"))
+                            startDivArray.sort();
                             console.log("discDiv1's array => " + startDivArray);
 
                         } else {
@@ -105,7 +107,8 @@ $(() => {
                         if (stagingDivArray[0] > selectedDisc[0] || stagingDivArray[0] == undefined) {
                             $discToAppend.removeClass("selected");
                             $discToAppend.prependTo($clickedDiv);
-                            stagingDivArray.push($($discToAppend).data("index"))
+                            stagingDivArray.push($($discToAppend).data("index"));
+                            stagingDivArray.sort();
                             console.log("discDiv2's array => " + stagingDivArray);
                         } else {
                             $discToAppend.removeClass("selected");
@@ -118,6 +121,7 @@ $(() => {
                             $discToAppend.removeClass("selected");
                             $discToAppend.prependTo($clickedDiv);
                             targetDivArray.push($($discToAppend).data("index"))
+                            targetDivArray.sort();
                             console.log("disDiv3's array => " + targetDivArray);
 
                         } else {
@@ -148,33 +152,6 @@ $(() => {
 
     };
 
-    // function checkForWin() {
-    //     console.log("check for win invoked");
-    //     if (targetDivArray.length === winningCompareArray.length) {
-    //         console.log("targetdivarray does === winningcomparearray");
-    //         if (targetDivArray.join() === winningCompareArray.join()) {
-    //             console.log("you win!!!");
-
-    //         } else {
-    //             console.log("keep trying!")
-    //         }
-    //     } else {
-    //         console.log("Keep trying");
-    //     }
-    // }
-
-    // function checkForWin(a, b) {
-    //     console.log(a.length);
-    //     for (let i = 0; i < a.length; i++) {
-    //         if (targetDivArray[i] === winningCompareArray[i]) {
-    //             console.log("win condition achieved");
-
-    //         } else {
-    //             console.log("must keep going...win condition false");
-    //         }
-    //     }
-
-    // }
     function checkForWin(a, b) {
         console.log(a);
         let targ = a.sort();
@@ -184,41 +161,18 @@ $(() => {
         if (targ.length === win.length) {
             for (let i = 0; i < b.length; i++) {
                 if (a[i] === b[i]) {
-                    console.log("win condition achieved");
+                    game = true;
 
                 } else {
-                    console.log("must keep going...win condition false");
+                    game = false;
                 }
             }
+            game == true ? alert("You WIN!!") : null
         } else {
-            console.log("keep going.  array lengths not equal");
+            game = false;
         }
     }
-    // function checkForWin(a,b) {
-    //     a.toString();
-    //     b.toString();
-    //     if (a === b) {
-    //         console.log("win solution executed here");
-    //     } else {
-    //         console.log("Keep going....no win yet");
-    //     }
-    // }
-
-    // function checkIfLegal() {
-
-    //     if ($($clickedDiv).attr("id") === "discDiv1") {
-    //         if (startDivArray[0] > selectedDisc);
-
-    //     } else if ($($clickedDiv).attr("id") === "discDiv2") {
-    //         stagingDivArray.push($($discToAppend).data("index"))
-    //         console.log("this is where you update discDiv2's array: " + stagingDivArray);
-
-    //     } else if ($($clickedDiv).attr("id") === "discDiv3") {
-    //         targetDivArray.push($($discToAppend).data("index"))
-    //         console.log("this is where you update disDiv3's array: " + targetDivArray);
-
-    //     } 
-    // }
+    
 
   
 
