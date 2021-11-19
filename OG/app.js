@@ -61,7 +61,7 @@ $(() => {
                 $discToAppend = $(e.delegateTarget).find(":first-child");
                 $discToAppend.addClass("selected");
                 selectedDisc.push($(e.delegateTarget).find(":first-child").data("index"));
-                console.log("after step one: " + selectedDisc);
+                //console.log("after step one: " + selectedDisc);
 
 
 //----------------  Set Conditionals to remove selected disc from current array for tracking of moves  ----------  
@@ -72,6 +72,7 @@ $(() => {
                     console.log("this is where you remove selected disc from discDiv1's array: " + startDivArray);
 
                 } else if ($($clickedDiv).attr("id") === "discDiv2") {
+                    console.log(stagingDivArray);
                     stagingDivArray.sort();
                     stagingDivArray.shift();
                     console.log("this is where you remove selected disc from discDiv2's array: " + stagingDivArray);
@@ -90,7 +91,8 @@ $(() => {
                     if ($($clickedDiv).attr("id") === "discDiv1") {
 
                         if (startDivArray[0] > selectedDisc[0] || startDivArray[0] == undefined) {
-                            console.log($discToAppend);
+                            console.log("$discToAppend: " + $discToAppend);
+                            console.dir($discToAppend);
                             $discToAppend.removeClass("selected");
                             $discToAppend.prependTo($clickedDiv);
                             startDivArray.push($($discToAppend).data("index"))
@@ -105,6 +107,7 @@ $(() => {
                     } else if ($($clickedDiv).attr("id") === "discDiv2") {
 
                         if (stagingDivArray[0] > selectedDisc[0] || stagingDivArray[0] == undefined) {
+                            console.log(stagingDivArray);
                             $discToAppend.removeClass("selected");
                             $discToAppend.prependTo($clickedDiv);
                             stagingDivArray.push($($discToAppend).data("index"));
@@ -153,11 +156,11 @@ $(() => {
     };
 
     function checkForWin(a, b) {
-        console.log(a);
+        //console.log(a);
         let targ = a.sort();
         let win = b.sort();
-        console.log(targ);
-        console.log(a.length);
+        //console.log(targ);
+        //console.log(a.length);
         if (targ.length === win.length) {
             for (let i = 0; i < b.length; i++) {
                 if (a[i] === b[i]) {
