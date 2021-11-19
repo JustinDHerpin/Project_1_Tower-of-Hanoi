@@ -137,9 +137,12 @@ h1 {
     text-align: center;
 }
 
-.pole{
-    height: 20px;
+.pole {
+    z-index: -10;
+    position: absolute;
+    height: 25%;
     background-color: black;
+    border-radius: 60px;
 }
 
 
@@ -176,4 +179,8 @@ h1 {
     background-color: brown;
     width: 70%;
     height: 75%;
+}
+
+.selected {
+    margin-bottom: 30px;
 }

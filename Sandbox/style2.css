@@ -47,6 +47,9 @@ header {
     background-color: fuchsia;
 }
 
+.selected {
+    background-color: purple;
+}
 
 
 
