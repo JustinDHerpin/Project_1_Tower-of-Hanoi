@@ -76,10 +76,11 @@ $(() => {
                 //         startDivArray.shift();
                 //         console.log("this is where you remove selected disc from discDiv1's array: " + startDivArray);
 
-                //     } else if ($($divToMoveFrom).attr("id") === "discDiv2") {
-                //         stagingDivArray.sort();
-                //         stagingDivArray.shift();
-                //         console.log("this is where you remove selected disc from discDiv2's array: " + stagingDivArray);
+                } else if ($($clickedDiv).attr("id") === "discDiv2") {
+                    console.log(stagingDivArray);
+                    stagingDivArray.sort();
+                    stagingDivArray.shift();
+                    console.log("this is where you remove selected disc from discDiv2's array: " + stagingDivArray);
 
                 //     } else if ($($divToMoveFrom).attr("id") === "discDiv3") {
                 //         targetDivArray.sort();
@@ -192,11 +193,11 @@ $(() => {
     };
 
     function checkForWin(a, b) {
-        console.log(a);
+        //console.log(a);
         let targ = a.sort();
         let win = b.sort();
-        console.log(targ);
-        console.log(a.length);
+        //console.log(targ);
+        //console.log(a.length);
         if (targ.length === win.length) {
             for (let i = 0; i < b.length; i++) {
                 if (a[i] === b[i]) {
