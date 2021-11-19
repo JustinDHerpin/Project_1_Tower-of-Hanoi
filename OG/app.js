@@ -70,25 +70,25 @@ $(() => {
 
 //----------------  Set Conditionals to remove selected disc from current array for tracking of moves  ----------  
 
-                if ($divToMoveFrom !== $divToMoveTo){
-                    if ($($divToMoveFrom).attr("id") === "discDiv1") {
-                        startDivArray.sort();
-                        startDivArray.shift();
-                        console.log("this is where you remove selected disc from discDiv1's array: " + startDivArray);
+                // if ($divToMoveFrom !== $divToMoveTo){
+                //     if ($($divToMoveFrom).attr("id") === "discDiv1") {
+                //         startDivArray.sort();
+                //         startDivArray.shift();
+                //         console.log("this is where you remove selected disc from discDiv1's array: " + startDivArray);
 
-                    } else if ($($divToMoveFrom).attr("id") === "discDiv2") {
-                        stagingDivArray.sort();
-                        stagingDivArray.shift();
-                        console.log("this is where you remove selected disc from discDiv2's array: " + stagingDivArray);
+                //     } else if ($($divToMoveFrom).attr("id") === "discDiv2") {
+                //         stagingDivArray.sort();
+                //         stagingDivArray.shift();
+                //         console.log("this is where you remove selected disc from discDiv2's array: " + stagingDivArray);
 
-                    } else if ($($divToMoveFrom).attr("id") === "discDiv3") {
-                        targetDivArray.sort();
-                        targetDivArray.shift();
+                //     } else if ($($divToMoveFrom).attr("id") === "discDiv3") {
+                //         targetDivArray.sort();
+                //         targetDivArray.shift();
 
-                        console.log("this is where you remove selected disc from disDiv3's array: " + targetDivArray);
+                //         console.log("this is where you remove selected disc from disDiv3's array: " + targetDivArray);
 
-                    }
-                }
+                //     }
+                // }
                 
 //----------------  Set Conditionals after disc is selected to control moving selected disc (seletedDisc.lenth === 1) ----------
 
