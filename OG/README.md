@@ -65,7 +65,7 @@ The user must move each disc, one by one, stacking only ontop of larger discs or
 
 Once the discs have all been moved, the round is over (and the next round should begin for future editions).
 
-![WinSolution](TowerofHanoi_win.png "Win Solution")
+![WinSolution](TowerofHanoi_Win.png "Win Solution")
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
