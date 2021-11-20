@@ -21,7 +21,7 @@ main {
     height: 25%;
     background-color: rgba(0,0,0,0.7);
     position: absolute;
-    top: 18%;
+    top: 25%;
     justify-content: center;
     align-items: center;
     
@@ -39,7 +39,7 @@ main {
     opacity: 0.6; */
     border-radius: 4px;
     text-align: center;
-
+    overflow: auto;
 }
 
 .modalh2 {
@@ -52,6 +52,10 @@ main {
 .modalChildren {
     color: whitesmoke;
     /* transform-style: preserve-3d; */
+}
+
+p.modalChildren {
+    font-size: 22px;
 }
 
 .close {
@@ -115,7 +119,6 @@ h1 {
 }
 
 #discDiv3 {
-    /* background-color: blue; */
     text-align: center;
     width: 25%;
     height: 100%;
@@ -162,7 +165,6 @@ h1 {
 }
 
 #bottom{
-    /* background-color: purple; */
     grid-row: 3;
     display: flex;
     flex-direction: column;

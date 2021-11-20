@@ -54,6 +54,10 @@ main {
     /* transform-style: preserve-3d; */
 }
 
+p.modalChildren {
+    font-size: 20px;
+}
+
 .close {
     border-radius: 20px;
     padding: 0 2rem;
